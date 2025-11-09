@@ -54,7 +54,7 @@
                             <p class="{{$filter=='todo'?'text-white':'text-[#92adc9]'}} text-sm font-bold leading-normal tracking-[0.015em]">A Faire ({{$todo}})</p>
                         </button>
                         <button wire:click="filterMenu('{{$menus[2]}}')"  class="flex flex-col items-center justify-center {{$filter=='pending'?'border-b-[3px] border-b-[#2b8dee] text-white':'text-[#92adc9]'}}   pb-[13px] pt-4" >
-                            <p class="{{$filter=='pending'?'text-white':'text-[#92adc9]'}} text-sm font-bold leading-normal tracking-[0.015em]">A Faire ({{$pending}})</p>
+                            <p class="{{$filter=='pending'?'text-white':'text-[#92adc9]'}} text-sm font-bold leading-normal tracking-[0.015em]">En Cours ({{$pending}})</p>
                         </button>
                         <button wire:click="filterMenu('{{$menus[3]}}')" class="flex flex-col items-center justify-center {{$filter!=='completed'?'text-[#92adc9]':'border-b-[3px] border-b-[#2b8dee] text-white'}}  pb-[13px] pt-4">
                             <p  class=" {{$filter!=='completed'?'text-[#92adc9]':'text-white'}} text-sm font-bold leading-normal tracking-[0.015em]">Terminée ({{$completed}}) </p>
