@@ -109,7 +109,7 @@
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-240 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Status</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal">Date Limite</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Priorité</th>
-                                <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Rappel</th>
+                                <th colspan="2" class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal text-center">Rappel</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 px-4 py-3 text-left text-white w-60 text-[#92adc9] text-sm font-medium leading-normal"></th>
                             </tr>
                             </thead>
@@ -155,6 +155,32 @@
                                         >
                                             {{$task->priority}}
                                         </x-status>
+                                    </td>
+
+                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+
+                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                                        <div x-data="{ on: {{$task->remind?'true':'false'}} }" class="flex items-center gap-3">
+                                            <button
+                                                @click="on = !on"
+                                                :aria-pressed="on.toString()"
+                                                :class="on ? 'bg-green-500' : 'bg-gray-300'"
+                                                class="w-11 h-6 rounded-full relative transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400"
+                                                role="switch"
+                                                :aria-checked="on.toString()"
+                                                tabindex="0"
+                                                @keydown.space.prevent="on = !on"
+                                                @keydown.enter.prevent="on = !on"
+                                            >
+    <span
+        class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"
+        :class="on ? 'translate-x-5' : ''"
+    ></span>
+                                            </button>
+                                            <span x-text="on ? 'OUI' : 'NON'" class="text-sm text-slate-700"></span>
+                                        </div>
+
+                                    </td>
                                     </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 -z-1 h-[72px] px-2 py-5 w-60 text-[#92adc9] text-sm font-bold leading-normal tracking-[0.015em] flex justify-evenly relative">
                                         <div wire:key="task-menu-{{ $task->id }}"  x-init="$watch('open', value => { if (!value) $refs.menu?.classList.remove('active'); })"  x-data="{ open: false }" class="relative ">

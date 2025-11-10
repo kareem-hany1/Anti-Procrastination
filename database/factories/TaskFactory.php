@@ -26,6 +26,7 @@ class TaskFactory extends Factory
             'priority' => $priority[rand(0, 2)],
             'due_date' => fake()->dateTimeBetween('today', 'tomorrow'),
             'user_id' => User::inRandomOrder()->first()->id,
+            'remind' => fake()->boolean()
         ];
     }
 }

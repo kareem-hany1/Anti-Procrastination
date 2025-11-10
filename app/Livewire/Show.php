@@ -31,11 +31,11 @@ class Show extends Component
 
 
             if($this->priority=='high'){
-                $tasks =  $query->orderByRaw("FIELD(priority, 'high', 'medium', 'normal')")->get();
+                $tasks =  $query->orderByRaw("FIELD(priority, 'high', 'medium', 'normal')")->paginate(7)->withPath('/tasks');
             }elseif($this->priority=='low'){
-                $tasks =   $query->orderByRaw("FIELD(priority, 'normal', 'medium', 'high')")->get();
+                $tasks =   $query->orderByRaw("FIELD(priority, 'normal', 'medium', 'high')")->paginate(7)->withPath('/tasks');
             }else{
-                $tasks =  $query->orderByDesc('created_at')->paginate(12);
+                $tasks =  $query->orderByDesc('created_at')->paginate(7)->withPath('/tasks');
             }
 
         }else{
@@ -47,11 +47,11 @@ class Show extends Component
                 $query->orderBy('due_date', 'desc');
             }
             if($this->priority=='high'){
-                $tasks =  $query->orderByRaw("FIELD(priority, 'high', 'medium', 'normal')")->get();
+                $tasks =  $query->orderByRaw("FIELD(priority, 'high', 'medium', 'normal')")->paginate(7)->withPath('/tasks');
             }elseif($this->priority=='low'){
-                $tasks =   $query->orderByRaw("FIELD(priority, 'normal', 'medium', 'high')")->get();
+                $tasks =   $query->orderByRaw("FIELD(priority, 'normal', 'medium', 'high')")->paginate(7)->withPath('/tasks');
             }else{
-                $tasks =  $query->orderByDesc('created_at')->paginate(12);
+                $tasks =  $query->orderByDesc('created_at')->paginate(7)->withPath('/tasks');;
             }
         }
 

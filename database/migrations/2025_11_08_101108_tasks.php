@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['pending', 'completed', 'todo'])->default('todo');
             $table->date('due_date');
             $table->enum('priority', ['normal', 'medium', 'high'])->default('normal');
+            $table->boolean('remind')->default(true);
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
