@@ -78,7 +78,7 @@ class Show extends Component
             $new_status = 'todo';
         }
         if($new_status == 'completed'){
-            $this->success = 'Bravo !';
+            flash()->success('Bravo !!!!');
         }
 
         $task->update(['status' => $new_status]);
@@ -89,7 +89,7 @@ class Show extends Component
     public function destroy(Task $task){
         Gate::authorize('destroy', $task);
         $task->delete();
-        $this->success = 'Task has been deleted';
+        flash()->success('La tache a ete supprimé');
     }
 
     public function priorit(){

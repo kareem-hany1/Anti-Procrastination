@@ -9,12 +9,12 @@
                         <span class="truncate">Nouvelle  Tache</span>
                     </a>
                 </div>
-                @if($success)
-                    <p class="px-5 py-3 bg-green-500 rounded-md text-light">{{$success}}</p>
-                @endif
-                @if(session('success'))
-                    <p class="px-5 py-3 bg-green-500 rounded-md text-light">{{session('success')}}</p>
-                @endif
+{{--                @if($success)--}}
+{{--                    <p class="px-5 py-3 bg-green-500 rounded-md text-light">{{$success}}</p>--}}
+{{--                @endif--}}
+{{--                @if(session('success'))--}}
+{{--                    <p class="px-5 py-3 bg-green-500 rounded-md text-light">{{session('success')}}</p>--}}
+{{--                @endif--}}
 
                 <div class="px-4 py-3">
                     <label class="flex flex-col min-w-40 h-12 w-full">
@@ -106,6 +106,7 @@
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-240 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Status</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal">Date Limite</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Priorité</th>
+                                <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Rappel</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 px-4 py-3 text-left text-white w-60 text-[#92adc9] text-sm font-medium leading-normal"></th>
                             </tr>
                             </thead>
@@ -124,8 +125,13 @@
                             @endphp
                             @foreach($tasks as $task)
                                 <tr class="border-t border-t-[#324d67]">
-                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-120 h-[72px] px-4 py-2 w-[400px] text-white text-sm font-normal leading-normal">
-                                        {{$task->title}}
+                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-120 h-[72px] px-4 py-2 w-[400px]   text-white text-sm font-normal leading-normal">
+
+                                        @if($task->status =='completed')
+                                           <em><s>{{$task->title}}</s></em>
+                                        @else
+                                            {{$task->title}}
+                                        @endif
                                     </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                                         <x-status
@@ -148,7 +154,7 @@
                                         </x-status>
                                     </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 -z-1 h-[72px] px-2 py-5 w-60 text-[#92adc9] text-sm font-bold leading-normal tracking-[0.015em] flex justify-evenly relative">
-                                        <div wire:ignore x-data="{ open: false }" class="relative ">
+                                        <div wire:key="task-menu-{{ $task->id }}"  x-init="$watch('open', value => { if (!value) $refs.menu?.classList.remove('active'); })"  x-data="{ open: false }" class="relative ">
                                             <x-status   @click="open = !open" class="p-2 rounded-full hover:bg-[#1a2b3b] transition">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
                                                     <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z" />

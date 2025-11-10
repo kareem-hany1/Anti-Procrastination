@@ -52,9 +52,9 @@ class TasksController extends Controller
 //              'status' => 'required',
             ]);
 
-
             $task->update($validated);
-            return redirect('/tasks')->with(['success' => 'Tache Modifier!']);
+            flash()->success('La tache a ete modifier');
+            return redirect('/tasks');
 
     }
 }
