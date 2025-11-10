@@ -27,7 +27,8 @@ class TasksController extends Controller
         $validated['user_id'] = Auth::id();
 
         Task::create($validated);
-        return redirect('/tasks')->with(['success' => 'Tache creer!']);
+        flash()->success('Tache creé!');
+        return redirect('/tasks');
 
     }
 

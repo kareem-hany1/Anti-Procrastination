@@ -35,7 +35,7 @@ class Show extends Component
             }elseif($this->priority=='low'){
                 $tasks =   $query->orderByRaw("FIELD(priority, 'normal', 'medium', 'high')")->get();
             }else{
-                $tasks =  $query->orderByDesc('created_at')->get();
+                $tasks =  $query->orderByDesc('created_at')->paginate(12);
             }
 
         }else{
@@ -51,7 +51,7 @@ class Show extends Component
             }elseif($this->priority=='low'){
                 $tasks =   $query->orderByRaw("FIELD(priority, 'normal', 'medium', 'high')")->get();
             }else{
-                $tasks =  $query->orderByDesc('created_at')->get();
+                $tasks =  $query->orderByDesc('created_at')->paginate(12);
             }
         }
 
