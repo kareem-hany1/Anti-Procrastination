@@ -14,7 +14,7 @@ class RemindController extends Controller
 
         foreach($users as $user){
             foreach($user->tasks as $task){
-                if(now()->toDateString() == $task->due_date){
+                if(now()->toDateString() == $task->due_date && $task->status == 'todo'){
                     Mail::to($user->email)->send(new Remind($user->fullname, $task->title));
                 }
             }
