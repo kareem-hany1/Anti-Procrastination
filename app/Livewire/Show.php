@@ -111,5 +111,18 @@ class Show extends Component
             $this->dues = 'all';
         }
     }
+
+    public function remind(Task $task){
+        Gate::authorize('destroy', $task);
+        $status = $task->remind;
+        $task->update(['remind' => !$task->remind]);
+            if($status == 0){
+
+                flash()->success('Un rappel vous sera envoyer via email pour cette tache !!');
+            }else{
+                flash()->error('Le rappel via email est desactivé pour cette tache');
+            }
+
+    }
 }
 

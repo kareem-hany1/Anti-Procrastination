@@ -160,25 +160,21 @@
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
 
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
-                                        <div x-data="{ on: {{$task->remind?'true':'false'}} }" class="flex items-center gap-3">
-                                            <button
-                                                @click="on = !on"
-                                                :aria-pressed="on.toString()"
-                                                :class="on ? 'bg-green-500' : 'bg-gray-300'"
-                                                class="w-11 h-6 rounded-full relative transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-400"
-                                                role="switch"
-                                                :aria-checked="on.toString()"
-                                                tabindex="0"
-                                                @keydown.space.prevent="on = !on"
-                                                @keydown.enter.prevent="on = !on"
-                                            >
-    <span
-        class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transition-transform"
-        :class="on ? 'translate-x-5' : ''"
-    ></span>
-                                            </button>
-                                            <span x-text="on ? 'OUI' : 'NON'" class="text-sm text-slate-700"></span>
-                                        </div>
+                                        <label  class="inline-flex items-center cursor-pointer relative">
+                                            <!-- Checkbox cachée -->
+                                            <input wire:click="remind({{$task}})" type="checkbox" class="sr-only peer" />
+
+                                            <!-- Track -->
+                                            <div class="w-11 h-6  rounded-full {{$task->remind==1?'bg-green-500':'bg-gray-300'}}   transition-colors"></div>
+
+                                            <!-- Thumb -->
+                                            <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transform transition-transform {{$task->remind==1?'translate-x-5 ':''}} "></div>
+
+                                            <!-- Label texte -->
+                                            <span class="ml-3 text-sm text-gray-700 select-none">{{$task->remind?'OUI':'NON'}}</span>
+                                        </label>
+
+
 
                                     </td>
                                     </td>
