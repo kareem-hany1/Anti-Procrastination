@@ -10,6 +10,9 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+    ->withSchedule(function (\Illuminate\Console\Scheduling\Schedule $schedule) {
+        $schedule->call(\App\Http\Controllers\RemindController::remind())->everyMinute();
+    })
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })

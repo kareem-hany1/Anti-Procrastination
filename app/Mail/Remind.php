@@ -17,9 +17,11 @@ class Remind extends Mailable
      * Create a new message instance.
      */
     public $user;
-    public function __construct($user)
+    public $todo;
+    public function __construct($user, $todo)
     {
         $this->user = $user;
+        $this->todo = $todo;
     }
 
     /**
@@ -38,7 +40,7 @@ class Remind extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mail.message', with: ['username' => $this->user]
+            view: 'mail.message', with: ['username' => $this->user, 'todo' => $this->todo]
         );
     }
 
