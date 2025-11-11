@@ -58,4 +58,9 @@ class TasksController extends Controller
             return redirect('/tasks');
 
     }
+
+    public function notify(){
+        $notifs = Auth::user()->notifys()->get();
+        return view('task.notify', compact('notifs'));
+    }
 }

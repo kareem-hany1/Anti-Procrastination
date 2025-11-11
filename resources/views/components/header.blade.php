@@ -7,7 +7,8 @@
     </div>
     <div class="flex flex-1 justify-end gap-2">
         <x-button
-
+            type="a"
+            href="/notify"
             class="mr-5"
         >
             <div class="text-white" data-icon="Bell" data-size="20px" data-weight="regular">

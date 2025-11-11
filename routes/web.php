@@ -16,4 +16,5 @@ Route::get('/task/create', [TasksController::class, 'create'])->middleware('auth
 Route::post('/task/create', [TasksController::class, 'store'])->middleware('auth');
 Route::get('/task/{task}/edit', [TasksController::class, 'show'])->middleware('auth')->can('edit', 'task');
 Route::post('/task/{task}/edit', [TasksController::class, 'edit'])->middleware('auth')->can('edit', 'task');
+Route::get('/notify', [TasksController::class, 'notify'])->middleware('auth');
 

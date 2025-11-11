@@ -1,6 +1,6 @@
 
-        <div class="px-40 flex flex-1 justify-center py-5">
-            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+        <div class="px-10 lg:px-40 flex justify-center py-5 w-full ">
+            <div class="layout-content-container flex flex-col w-full ">
                 <div class="flex flex-wrap justify-between gap-3 p-4">
                     <p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">Mes Taches</p>
                     <a href="/task/create"
@@ -9,13 +9,6 @@
                         <span class="truncate"><svg class="inline mr-2"  height="15" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>Nouvelle  Tache</span>
                     </a>
                 </div>
-{{--                @if($success)--}}
-{{--                    <p class="px-5 py-3 bg-green-500 rounded-md text-light">{{$success}}</p>--}}
-{{--                @endif--}}
-{{--                @if(session('success'))--}}
-{{--                    <p class="px-5 py-3 bg-green-500 rounded-md text-light">{{session('success')}}</p>--}}
-{{--                @endif--}}
-
                 <div class="px-4 py-3">
                     <label class="flex flex-col min-w-40 h-12 w-full">
                         <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
@@ -100,16 +93,17 @@
                         </div>
                     </button>
                 </div>
-                <div class="px-4 py-3 @container">
-                    <div class="flex max-h-[55vh] overflow-y-scroll rounded-lg border border-[#324d67] bg-[#111a22] scrollbar-thin scrollbar-thumb-[#2b8dee]/60 scrollbar-track-[#192633] hover:scrollbar-thumb-[#2b8dee]/80     custom-scrollbar">
+                <div class="px-4 py-3 w-full ">
+                    <div class="flex w-full mb-3  max-h-[55vh] overflow-y-scroll rounded-lg border border-[#324d67] bg-[#111a22] scrollbar-thin scrollbar-thumb-[#2b8dee]/60 scrollbar-track-[#192633] hover:scrollbar-thumb-[#2b8dee]/80     custom-scrollbar">
                         <table>
                             <thead>
                             <tr class="bg-[#192633]">
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-120 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal">Tache</th>
+                                <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-120 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal">Description</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-240 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Status</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 px-4 py-3 text-left text-white w-[400px] text-sm font-medium leading-normal">Date Limite</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal">Priorité</th>
-                                <th colspan="2" class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal text-center">Rappel</th>
+                                <th colspan="2" class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 px-4 py-3 text-left text-white w-60 text-sm font-medium leading-normal text-center">Rappel Email</th>
                                 <th class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 px-4 py-3 text-left text-white w-60 text-[#92adc9] text-sm font-medium leading-normal"></th>
                             </tr>
                             </thead>
@@ -136,6 +130,12 @@
                                             {{$task->title}}
                                         @endif
                                     </td>
+
+                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal text-white leading-normal">
+                                        {{\Illuminate\Support\Str::limit($task->description, 100)}}
+
+
+                                    </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                                         <x-status
                                             :color="$colorCode[$task->status]"
@@ -159,7 +159,7 @@
 
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
 
-                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px]  py-2 w-60 text-sm font-normal leading-normal">
                                         <label  class="inline-flex items-center cursor-pointer relative">
                                             <!-- Checkbox cachée -->
                                             <input wire:click="remind({{$task}})" type="checkbox" class="sr-only peer" />
@@ -212,6 +212,7 @@
                         </table>
 
                     </div>
+
                     {{$tasks->links()}}
 
                 </div>
