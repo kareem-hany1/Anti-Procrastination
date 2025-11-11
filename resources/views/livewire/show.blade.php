@@ -179,7 +179,7 @@
                                     </td>
                                     </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 -z-1 h-[72px] px-2 py-5 w-60 text-[#92adc9] text-sm font-bold leading-normal tracking-[0.015em] flex justify-evenly relative">
-                                        <div wire:key="task-menu-{{ $task->id }}"  x-init="$watch('open', value => { if (!value) $refs.menu?.classList.remove('active'); })"  x-data="{ open: false }" class="relative ">
+                                        <div wire:key="task-menu-{{ $task->id }}" x-data="{ open: @entangle('openMenus.'.$task->id).live }" class="relative ">
                                             <x-status   @click="open = !open" class="p-2 rounded-full hover:bg-[#1a2b3b] transition">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
                                                     <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -187,8 +187,7 @@
                                             </x-status>
 
                                             <div
-                                                x-show="open"
-                                                @click.away="open = false"
+                                                wire:ignore.self x-show="open" @click.away="open = false"
                                                 class="fixed bg-[#1a2b3b] border border-[#324d67] rounded-lg shadow-lg z-[9999] w-32"
                                                 x-transition
                                                 x-cloak
@@ -204,6 +203,7 @@
                                                 </button>
                                             </div>
                                         </div>
+{{--                                        <livewire:task-menu :task="$task" />--}}
 
                                     </td>
                                 </tr>
