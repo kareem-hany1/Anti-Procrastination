@@ -61,6 +61,7 @@ class TasksController extends Controller
 
     public function notify(){
         $notifs = Auth::user()->notifys()->get();
+        Auth::user()->hasnotify()->update(['status' => false]);
         return view('task.notify', compact('notifs'));
     }
 }

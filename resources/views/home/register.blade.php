@@ -7,7 +7,7 @@
 
 
             <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] ">
-                <h2 class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">S'incrire</h2>
+                <h2 class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">S'inscrire</h2>
                 @error('email')
                 <p class="text-red-500 text-sm fond-bold text-center">{{$message}}</p>
                 @enderror

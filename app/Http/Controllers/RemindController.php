@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\Remind;
 
+use App\Models\HasNotify;
 use App\Models\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -27,6 +28,7 @@ class RemindController extends Controller
             foreach($user->tasks as $task){
                 if(now()->toDateString() == $task->due_date && $task->status == 'todo'){
                     Notify::create(['user_id' => $user->id, 'title' => $task->title,'body' => 'Echeance proche '. $task->description]);
+                    HasNotify::where('user_id', $user->id)->update(['status' => true]);
                 }
             }
         }

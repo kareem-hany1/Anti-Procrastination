@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HasNotify;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,14 @@ class UsersController extends Controller
             'password' => 'required',
         ]);
         $user = User::create($validated);
+
         Auth::login($user);
+        if(!HasNotify::where('user_id',$user->id)->exists()){
+            HasNotify::create([
+                'user_id' => $user->id,
+                'status' => false
+            ]);
+        }
         return redirect('/tasks');
     }
 }

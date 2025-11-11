@@ -2,108 +2,74 @@
     <x-slot:title>HOME</x-slot:title>
     <div class="layout-container flex h-full grow flex-col">
         <x-header/>
+        <div class="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden ">
 
-        <div class="px-40 flex flex-1 justify-center py-5">
-            <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                <div class="@container">
-                    <div class="@[480px]:p-4">
-                        <div
-                            class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-center justify-center p-4"
-                            style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAI-aeH5vtRaZ-69GFae0R5nvsKXwdie4eG8J1jNtN77AlwtdsbNSJKOktJPhpV2Xv8JPpXnLwqlOhOgMhrRfEm1c6VzgCp7qmF3rvxB9ccM9ZT6K_gHo-pl-8botS9WA4W2u8lm0fUp63dqTLCUv665vkjyshwWipRCtiRnzEw79RX6rdl2SPc6TBnNNIFNTilGGcNz-PPwM8P19wgYLL8gxjidIgm9kC-k_N2PruOHUDFJFJ_DAEr10mdEXxJzJoT3waBYnVSeyZT");'
-                        >
-                            <div class="flex flex-col gap-2 text-center">
-                                <h1
-                                    class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
-                                >
-                                    Organisez enfin votre travail et votre vie.
-                                </h1>
-                                <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                                    Restez concentré, organisé et serein avec TaskMaster. Le gestionnaire de tâches et la to-do list n°1 au monde.
-                                </h2>
-                            </div>
-                            <button
-                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#2b8dee] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
-                            >
-                                <span class="truncate">Commencer</span>
-                            </button>
-                        </div>
-                    </div>
+            <!-- Floating shapes background -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                <div class="absolute top-20 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-bounce"></div>
+                <div class="absolute bottom-32 right-20 w-32 h-32 bg-white opacity-10 rounded-full animate-pulse"></div>
+                <div class="absolute top-1/2 right-10 w-16 h-16 bg-white opacity-10 rounded-full animate-ping"></div>
+                <div class="absolute bottom-20 left-20 w-24 h-24 bg-white opacity-10 rounded-full animate-bounce-slow"></div>
+            </div>
+
+            <div class="max-w-5xl mx-auto text-center relative z-10">
+
+                <!-- Badge -->
+                <div class="inline-block mb-8 animate-fade-in">
+                <span class="inline-flex items-center bg-white bg-opacity-20 backdrop-blur-md px-6 py-2 rounded-full text-white text-sm font-medium border border-white border-opacity-30">
+                    ⚡ Simple, Rapide, Efficace
+                </span>
                 </div>
-                <div class="flex flex-col gap-10 px-4 py-10 @container">
-                    <div class="flex flex-col gap-4">
-                        <h1
-                            class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
-                        >
-                            Des fonctionnalités qui vous donnent du pouvoir
-                        </h1>
-                        <p class="text-white text-base font-normal leading-normal max-w-[720px]">
-                            TaskMaster regorge de fonctionnalités pour vous aider à gérer vos tâches, collaborer avec d'autres et suivre vos progrès.
-                        </p>
-                    </div>
-                    <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
-                        <div class="flex flex-col gap-3 pb-3">
-                            <div
-                                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC61-kKIBoRA4td01OUpj9bxNfRKRc-Ym26Tf9LkM4c8HN32mWpEZhgTwDjHLETvVpq4EyyJ8u4EPz3iWNEF0W8A-YqiBnwdf1UlTsEWBv1xoO2DTfJEfUokA8UjxnUOpGEu_G9Zr1Aa60rOv4zkb4eSuwjr5rS1x2PqHxnTU0wSuSrtLMRWFLJrzEmV8RGRdV7NnmCfEpR9xYB_M_sYC1GskaA4awhAsKUBI46U56Yr-l7FhRLe-8Uvc02IQKywWV9F33GGAUsBCy8");'
-                            ></div>
-                            <div>
-                                <p class="text-white text-base font-medium leading-normal">Gestion des tâches</p>
-                                <p class="text-[#92adc9] text-sm font-normal leading-normal">
-                                    Créez des tâches, définissez des échéances et priorisez votre travail. Restez organisé et à jour dans vos listes.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-3 pb-3">
-                            <div
-                                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDc2SVx3Hqz5t0uL6zZwr8-7FwMtLIWtRkDyx0Ep98Y9h3QlZpJtWmOO81ER18cHIEuJcDdsk57Nn2_0hT1VqnR4yV3bLOvFptGrDjh9bSSAp42HcedYlDd1dEktToIJjikSmlOwZXRKTwS6vLjOW7i1FE5t_2gKmT3ozXPkqs_4t0YBp9OumeL3VMkw1zxPRUqhsOw2jfCPy-8Zj4vbPYlnbPAGXpCwmNDtbsKdls2vYZhWMW17eFLJ9-1KMfCAqHi4XIeL0CFn5zX");'
-                            ></div>
-                            <div>
-                                <p class="text-white text-base font-medium leading-normal">Collaboration</p>
-                                <p class="text-[#92adc9] text-sm font-normal leading-normal">
-                                    Partagez vos tâches et projets avec votre équipe. Collaborez facilement et atteignez vos objectifs plus vite.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col gap-3 pb-3">
-                            <div
-                                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg"
-                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDokdrwKVVkV3tBiA98l1CIat8cwQ-nxFd1b4fnzJqUqFDyyUHjT0J9kKIYhFNC9aIxbpcl5-NQ1wPQ2qLCHh114UQ4tUkNUZygJyqu9XRlYv33LxGpfGd4KNshI4ybiEBO6DlJMLQVt5BJ9xU_bWrIdftPWQxrD2w7hDMScfvqFn-GvWHMknjTeQ1J0yKwZ2O09OEkh7VMgP4JIK229UkLh9Gf2UzpGJTo9Um-IWg6hIDgeSoyBznqQqgqzykmcP5As2HWuwonLSLF");'
-                            ></div>
-                            <div>
-                                <p class="text-white text-base font-medium leading-normal">Suivi des progrès</p>
-                                <p class="text-[#92adc9] text-sm font-normal leading-normal">
-                                    Suivez vos progrès et identifiez les points à améliorer. Restez motivé et atteignez vos objectifs.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+
+                <!-- Main Title -->
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
+                    Arrêtez de procrastiner.
+                    <br>
+                    <span class="bg-gradient-to-r from-pink-300 to-purple-200 bg-clip-text text-transparent">
+                    Commencez à réaliser.
+                </span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl text-purple-100 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up">
+                    Créez une tâche, recevez un rappel par email quand la deadline approche. C'est tout ce dont vous avez besoin pour rester productif.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up">
+                    <a href="/login" class="bg-blue-200 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg shadow-2xl hover:shadow-purple-500 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto">
+                        Commencer  →
+                    </a>
                 </div>
-                <div class="@container">
-                    <div class="flex flex-col justify-end gap-6 px-4 py-10 @[480px]:gap-8 @[480px]:px-10 @[480px]:py-20">
-                        <div class="flex flex-col gap-2 text-center">
-                            <h1
-                                class="text-white tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]"
-                            >
-                                Prêt à commencer ?
-                            </h1>
-                            <p class="text-white text-base font-normal leading-normal max-w-[720px]">
-                                Inscrivez-vous dès aujourd’hui sur TaskMaster et découvrez la puissance d’un travail bien organisé.
-                            </p>
-                        </div>
-                        <div class="flex flex-1 justify-center">
-                            <div class="flex justify-center">
-                                <button
-                                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#2b8dee] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] grow"
-                                >
-                                    <span class="truncate">Commencer</span>
-                                </button>
-                            </div>
-                        </div>
+
+                <!-- Features Grid -->
+                <div class="grid md:grid-cols-3 gap-8 mt-20 animate-fade-in-up">
+
+                    <!-- Feature 1 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-2xl border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-4xl mb-4">✅</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Créez vos tâches</h3>
+                        <p class="text-purple-100">Ajoutez simplement une tâche avec une date limite. Pas de complexité inutile.</p>
                     </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-2xl border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-4xl mb-4">📧</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Recevez des rappels</h3>
+                        <p class="text-purple-100">Un email automatique vous alerte quand votre deadline approche.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white bg-opacity-10 backdrop-blur-md p-8 rounded-2xl border border-white border-opacity-20 hover:bg-opacity-15 transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="text-4xl mb-4">🎯</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Restez focalisé</h3>
+                        <p class="text-purple-100">Concentrez-vous sur l'essentiel : faire le travail, pas gérer un outil complexe.</p>
+                    </div>
+
                 </div>
+
             </div>
         </div>
-
+        <footer class="text-center text-slate-200">Made with ❤️ by <a class="text-blue-400" href="https://github.com/BranGitfox">Brandon Fidelin Ravomanana</a></footer>
     </div>
 </x-layout>
