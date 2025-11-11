@@ -58,6 +58,23 @@
             <x-button
                 type="a"
                 href="/notify"
+                class=" relative"
+            >
+                @if(\Illuminate\Support\Facades\Auth::user()->hasnotify->status==1)
+                    <span class="w-2 h-2 top-2 right-2 rounded-full bg-red-500 absolute"></span>
+                @endif
+
+                <div class="text-white" data-icon="Bell" data-size="20px" data-weight="regular">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                        <path
+                            d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                        ></path>
+                    </svg>
+                </div>
+            </x-button>
+            <x-button
+                type="a"
+                href="/notify"
                 class="mr-5 relative"
             >
                 @if(\Illuminate\Support\Facades\Auth::user()->hasnotify->status==1)
@@ -77,9 +94,9 @@
             <div class="relative" x-data="{ open: false }">
                 <button
                     @click="open = !open"
-                    class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors"
+                    class="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors"
                 >
-                    <span class="font-medium text-gray-700">{{ \Illuminate\Support\Facades\Auth::user()->fullname }}</span>
+                    <span class="font-medium text-gray-300">{{ \Illuminate\Support\Facades\Auth::user()->fullname }}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
@@ -90,13 +107,13 @@
                     x-show="open"
                     @click.away="open = false"
                     x-transition
-                    class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50"
+                    class="absolute right-0 mt-2 w-48 bg-gray-700 rounded-lg shadow-lg  py-1 z-50"
                 >
                     <form action="/logout" method="post">
                         @csrf
                         <button
                             type="submit"
-                            class="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 transition-colors flex items-center gap-2"
+                            class="w-full text-left px-4 py-2 text-red-600  transition-colors flex items-center gap-2"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />

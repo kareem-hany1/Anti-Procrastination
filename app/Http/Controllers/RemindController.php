@@ -8,6 +8,7 @@ use App\Models\HasNotify;
 use App\Models\Notify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 class RemindController extends Controller
 {
@@ -17,7 +18,7 @@ class RemindController extends Controller
 
         foreach($users as $user){
             foreach($user->tasks as $task){
-                if(now()->toDateString() == $task->due_date && $task->status == 'todo'){
+                if($task->due_date->diffInDays(now()) <=2 && $task->status == 'todo'){
                     Mail::to($user->email)->send(new Remind($user->fullname, $task->title));
 
                 }
@@ -26,8 +27,8 @@ class RemindController extends Controller
 
         foreach($notifs as $user){
             foreach($user->tasks as $task){
-                if(now()->toDateString() == $task->due_date && $task->status == 'todo'){
-                    Notify::create(['user_id' => $user->id, 'title' => $task->title,'body' => 'Echeance proche '. $task->description]);
+                if($task->due_date->diffInDays(now()) <= 2 && $task->status == 'todo'){
+                    Notify::create(['user_id' => $user->id, 'title' => $task->title,'body' => 'Echeance proche, '. $task->description]);
                     HasNotify::where('user_id', $user->id)->update(['status' => true]);
                 }
             }

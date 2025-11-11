@@ -145,8 +145,8 @@
                                             {{$task->status}}
                                         </x-status>
                                     </td>
-                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 h-[72px] {{$task->due_date == now()->toDateString()?'text-red-500':''}} px-4 py-2 w-[400px] text-[#92adc9] text-sm font-normal leading-normal">
-                                        {{$task->due_date}}
+                                    <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 h-[72px] {{\Illuminate\Support\Str::limit($task->due_date, 10, end:'') == now()->toDateString()?'text-red-500':''}} px-4 py-2 w-[400px] text-[#92adc9] text-sm font-normal leading-normal">
+                                        {{\Illuminate\Support\Str::limit($task->due_date, 10, end: '')}}
                                     </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                                         <x-status
