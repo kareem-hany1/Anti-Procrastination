@@ -118,7 +118,22 @@
                                         'high' => 'red',
                                         'medium' => 'yellow',
                                         'normal' => 'blue'
-                                               ]
+                                               ];
+
+                                 $priorityName = [
+                                        'high' => 'Haut',
+                                        'medium' => 'Moyen',
+                                        'normal' => 'Normal'
+                                               ];
+                                 $statusName = [
+
+                                        'todo' => 'A Faire',
+                                        'pending' => 'En Cours',
+                                        'completed' => 'Terminé'
+                                                ];
+
+
+
                             @endphp
                             @foreach($tasks as $task)
                                 <tr class="border-t border-t-[#324d67]">
@@ -142,7 +157,7 @@
                                             wire:click="status({{$task}})"
                                         >
 
-                                            {{$task->status}}
+                                            {{$statusName[$task->status]}}
                                         </x-status>
                                     </td>
                                     <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 h-[72px] {{\Illuminate\Support\Str::limit($task->due_date, 10, end:'') == now()->toDateString()?'text-red-500':''}} px-4 py-2 w-[400px] text-[#92adc9] text-sm font-normal leading-normal">
@@ -153,7 +168,7 @@
                                             :color="$priorityCode[$task->priority]"
                                             class="text-yello-500"
                                         >
-                                            {{$task->priority}}
+                                            {{$priorityName[$task->priority]}}
                                         </x-status>
                                     </td>
 

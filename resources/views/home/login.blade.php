@@ -48,6 +48,6 @@
                 </div>
             </div>
         </form>
-
+        <x-button type="a" href="/" class="absolute top-20 left-10"><- Retour</x-button>
     </div>
 </x-layout>

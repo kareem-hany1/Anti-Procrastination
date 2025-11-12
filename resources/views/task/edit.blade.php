@@ -56,7 +56,7 @@
                         <input
                             placeholder="Select due date"
                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#233648] focus:border-none h-14 placeholder:text-[#92adc9] p-4 text-base font-normal leading-normal"
-                            value="{{$task->due_date}}"
+                            value="{{\Illuminate\Support\Str::limit($task->due_date, 10, end:'')}}"
                             type="date"
                             name="due_date"
                         />

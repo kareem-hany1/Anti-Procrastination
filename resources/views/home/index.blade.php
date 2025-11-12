@@ -70,6 +70,6 @@
 
             </div>
         </div>
-        <footer class="text-center text-slate-200">Made with ❤️ by <a class="text-blue-400" href="https://github.com/BranGitfox">Brandon Fidelin Ravomanana</a></footer>
+        <footer class="text-center text-slate-200">Made with ❤️ by <a class="text-blue-400" href="https://github.com/BranGitfox">Brandon Fidelin Ravomanana</a>, Copyright {{now()->year}}</footer>
     </div>
 </x-layout>
