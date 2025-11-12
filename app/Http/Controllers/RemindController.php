@@ -19,7 +19,7 @@ class RemindController extends Controller
         foreach($users as $user){
             foreach($user->tasks as $task){
                 if($task->due_date->diffInDays(now()) <=2 && $task->status == 'todo'){
-                    Mail::to($user->email)->send(new Remind($user->fullname, $task->title));
+                    Mail::to($user->email)->queue(new Remind($user->fullname, $task->title));
 
                 }
             }

@@ -33,7 +33,11 @@
                         @enderror
                     </label>
                 </div>
+                @php
+                $priority = ['high' => 'Haut', 'medium' => 'Moyen', 'normal' => 'Normal']
+                @endphp
                 <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+
                     <label class="flex flex-col min-w-40 flex-1">
                         <p class="text-white text-base font-medium leading-normal pb-2">Priority</p>
                         <select
@@ -41,9 +45,17 @@
                             name="priority"
                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#233648] focus:border-none h-14 bg-[image:--select-button-svg] placeholder:text-[#92adc9] p-4 text-base font-normal leading-normal"
                         >
-                            <option selected="{{$task->priority == 'normal'}}" value="normal">Normal</option>
-                            <option selected="{{$task->priority == 'medium'}}" value="medium">Moyen</option>
-                            <option selected="{{$task->priority == 'high'}}" value="high">Haut</option>
+
+                            <option   value="{{$task->priority}}">{{$priority[$task->priority]}}</option>
+                            @if($priority[$task->priority] != 'Normal')
+                            <option  value="normal">Normal</option>
+                            @endif
+                                @if($priority[$task->priority] != 'Moyen')
+                            <option  value="medium">Moyen</option>
+                                @endif
+                                @if($priority[$task->priority] != 'Haut')
+                            <option  value="high">Haut</option>
+                                @endif
                         </select>
                         @error('priority')
                         {{$message}}
