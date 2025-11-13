@@ -13,6 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withSchedule(function (\Illuminate\Console\Scheduling\Schedule $schedule) {
         $schedule->call(\App\Http\Controllers\RemindController::remind())->everyFiveSeconds();
     })
+
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
