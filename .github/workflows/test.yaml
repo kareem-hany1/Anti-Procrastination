@@ -16,7 +16,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ''
+          MYSQL_ROOT_PASSWORD: ' '
           MYSQL_DATABASE: tasks
         ports:
           - 3306:3306
@@ -53,7 +53,7 @@ jobs:
           sed -i 's/DB_PORT=.*/DB_PORT=3306/' .env
           sed -i 's/DB_DATABASE=.*/DB_DATABASE=tasks/' .env
           sed -i 's/DB_USERNAME=.*/DB_USERNAME=root/' .env
-          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=root/' .env
+          sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=/' .env
 
       - name: Run migrations
         run: php artisan migrate --force
