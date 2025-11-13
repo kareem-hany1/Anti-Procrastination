@@ -88,7 +88,7 @@
                             type="submit"
                             class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#2b8dee] text-white text-sm font-bold leading-normal tracking-[0.015em]"
                         >
-                            <span class="truncate">Ajouter Task</span>
+                            <span class="truncate">Modifier</span>
                         </button>
                     </div>
                 </div>
