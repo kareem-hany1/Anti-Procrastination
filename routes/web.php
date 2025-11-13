@@ -11,6 +11,8 @@ Route::post('/login', [UsersController::class, 'login']);
 Route::get('/register', [HomeController::class, 'register']);
 Route::post('/register', [UsersController::class, 'register']);
 Route::post('/logout', [UsersController::class, 'logout']);
+
+
 Route::get('/tasks', [TasksController::class, 'index'])->middleware('auth');
 Route::get('/task/create', [TasksController::class, 'create'])->middleware('auth');
 Route::post('/task/create', [TasksController::class, 'store'])->middleware('auth');

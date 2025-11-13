@@ -17,9 +17,11 @@ test('user connexion', function () {
    $response = $this->post('/login',
        [
            'email' => 'test@gmail.com',
-           'password' => bcrypt('password'),
+           'password' => 'password',
        ]
    );
+
+   $response->assertRedirect('/tasks');
 
    expect(Auth::check())->toBeTrue();
    expect(Auth::user())->is($user)->toBeTrue();

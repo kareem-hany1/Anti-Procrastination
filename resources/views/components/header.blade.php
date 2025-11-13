@@ -68,7 +68,7 @@
                 href="/notify"
                 class="mr-2 sm:mr-5 relative"
             >
-                @if(\Illuminate\Support\Facades\Auth::user()->hasnotify->status==1)
+                @if(\Illuminate\Support\Facades\Auth::user()->hasnotify?->status==1)
                     <span class="w-2 h-2 top-2 right-2 rounded-full bg-red-500 absolute"></span>
                 @endif
 

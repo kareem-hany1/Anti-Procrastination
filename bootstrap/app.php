@@ -11,7 +11,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withSchedule(function (\Illuminate\Console\Scheduling\Schedule $schedule) {
-        $schedule->call(\App\Http\Controllers\RemindController::remind())->everyFiveSeconds();
+        $schedule->call(\App\Http\Controllers\RemindController::remind())->everyFifteenSeconds();
     })
 
     ->withMiddleware(function (Middleware $middleware): void {
