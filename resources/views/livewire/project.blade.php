@@ -50,7 +50,7 @@
                 </div>
             </header>
             <div class="flex-1 p-6">
-                <div class="overflow-hidden rounded-lg border border-border-dark bg-card-dark">
+                <div class="overflow-hidden rounded-lg border border-border-dark bg-card-dark mb-4">
                     <table class="w-full text-left text-sm">
                         <thead class="bg-background-dark text-xs uppercase text-text-muted-dark">
                         <tr>
@@ -63,34 +63,37 @@
                         </tr>
                         </thead>
                         <tbody>
-
+                    @foreach($projects as $project)
                         <tr class="border-b border-border-dark hover:bg-white/5">
                             <td class="p-4">
                                 <input class="form-checkbox h-4 w-4 rounded border-gray-600 bg-transparent text-primary focus:ring-primary focus:ring-2" type="checkbox"/>
                             </td>
-                            <td class="px-6 py-4 font-medium text-text-dark"><a href="" class="decoration-white decoration hover:underline">Develop landing page hero section</a></td>
-                            <td class="px-6 py-4 text-white ">12</td>
+                            <td class="px-6 py-4 font-medium text-text-dark"><a href="" class="decoration-white decoration hover:underline">{{$project->title}}</a></td>
+                            <td class="px-6 py-4 text-white ">{{$project->steps->count()}}</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
                                     <div class="w-full  rounded-full h-2 bg-gray-700">
-                                        <div class="bg-primary h-2 rounded-full" style="width: 19%"></div>
+                                        <div class="bg-primary h-2 rounded-full" style="width: {{$project->taskDone * 100/$project->steps->count()}}%"></div>
                                     </div>
-                                    <span class="text-xs font-medium  text-text-muted-dark">75%</span>
+                                    <span class="text-xs font-medium  text-text-muted-dark">{{$project->taskDone * 100/$project->steps->count()}}%</span>
                                 </div>
                             </td>
 
-                            <td class="px-6 py-4 font-medium text-text-dark ">Octobre 30405</td>
+                            <td class="px-6 py-4 font-medium text-text-dark ">{{$project->due_date->toDateString()}}</td>
 
                             <td class="px-6 py-4">
-                                <span class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/50 px-2.5 py-0.5 text-xs font-medium text-orange-800 dark:text-orange-300">En Cours</span>
+                                <span class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/50 px-2.5 py-0.5 text-xs font-medium text-orange-800 dark:text-orange-300">{{$project->status}}</span>
                             </td>
 
                         </tr>
-
+                    @endforeach
                         </tbody>
                     </table>
                 </div>
+
+                {{$projects->links()}}
             </div>
+
         </main>
     </div>
 

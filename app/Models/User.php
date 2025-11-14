@@ -56,4 +56,13 @@ class User extends Authenticatable
     public function hasnotify(){
         return $this->HasOne(HasNotify::class, 'user_id', 'id');
     }
+
+    public function projects(){
+        return $this->HasMany(Project::class, 'user_id', 'id');
+    }
+
+//    public function steps(){
+//        return $this->HasMany(Step::class, 'user_id', 'id');
+//    }
+
 }

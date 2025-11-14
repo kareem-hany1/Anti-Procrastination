@@ -2,12 +2,16 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Project extends Component
 {
     public function render()
     {
-        return view('livewire.project');
+        $projects = Auth::User()->projects()->withCount(['steps as taskDone' => fn($q) => $q->where('status', 'completed')] )->paginate(5)->withPath('/projects');
+
+
+        return view('livewire.project', ['projects' => $projects]);
     }
 }

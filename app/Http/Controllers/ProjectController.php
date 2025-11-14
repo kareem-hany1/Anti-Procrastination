@@ -10,4 +10,8 @@ class ProjectController extends Controller
         return view('project.index');
     }
 
+    public function show(){
+            return view('project.show');
+    }
+
 }
