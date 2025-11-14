@@ -68,7 +68,7 @@
                             <td class="p-4">
                                 <input class="form-checkbox h-4 w-4 rounded border-gray-600 bg-transparent text-primary focus:ring-primary focus:ring-2" type="checkbox"/>
                             </td>
-                            <td class="px-6 py-4 font-medium text-text-dark"><a href="" class="decoration-white decoration hover:underline">{{$project->title}}</a></td>
+                            <td class="px-6 py-4 font-medium text-text-dark"><a href="project/{{$project->id}}" class="decoration-white decoration hover:underline">{{$project->title}}</a></td>
                             <td class="px-6 py-4 text-white ">{{$project->steps->count()}}</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
