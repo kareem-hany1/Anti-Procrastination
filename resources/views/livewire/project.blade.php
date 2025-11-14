@@ -63,11 +63,12 @@
                         </tr>
                         </thead>
                         <tbody>
+
                         <tr class="border-b border-border-dark hover:bg-white/5">
                             <td class="p-4">
                                 <input class="form-checkbox h-4 w-4 rounded border-gray-600 bg-transparent text-primary focus:ring-primary focus:ring-2" type="checkbox"/>
                             </td>
-                            <td class="px-6 py-4 font-medium text-text-dark">Develop landing page hero section</td>
+                            <td class="px-6 py-4 font-medium text-text-dark"><a href="" class="decoration-white decoration hover:underline">Develop landing page hero section</a></td>
                             <td class="px-6 py-4 text-white ">12</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
@@ -78,13 +79,13 @@
                                 </div>
                             </td>
 
-                            <td class="px-6 py-4 font-medium text-text-dark">Octobre 30405</td>
-                            </td>
+                            <td class="px-6 py-4 font-medium text-text-dark ">Octobre 30405</td>
+
                             <td class="px-6 py-4">
                                 <span class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/50 px-2.5 py-0.5 text-xs font-medium text-orange-800 dark:text-orange-300">En Cours</span>
                             </td>
-                        </tr>
 
+                        </tr>
 
                         </tbody>
                     </table>
