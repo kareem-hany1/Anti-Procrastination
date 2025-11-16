@@ -63,6 +63,38 @@
 <div class="relative flex h-auto min-h-screen w-full flex-col bg-[#111a22] dark group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
     {{$slot}}
 </div>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": "#4A90E2",
+                    "background-light": "#F4F7FA",
+                    "background-dark": "#101922",
+                    "card-light": "#FFFFFF",
+                    "card-dark": "#1a2632",
+                    "text-light": "#333333",
+                    "text-dark": "#FFFFFF",
+                    "text-muted-light": "#888888",
+                    "text-muted-dark": "#92adc9",
+                    "border-light": "#EAEAEA",
+                    "border-dark": "#233648",
+                    "accent": "#50E3C2",
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+                },
+            },
+        },
+    }
+</script>
 @livewireScripts
 <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 </body>
