@@ -8,11 +8,25 @@ use Livewire\Component;
 class Project extends Component
 {
     public $filter ='';
-
+    public $date_filter = 'none';
+    public $date_creation ='none';
 
     public function render()
     {
-        $projects = Auth::User()->projects()->withCount(['steps as taskDone' => fn($q) => $q->where('status', 'completed')] )->paginate(5)->withPath('/projects');
+        $query = Auth::User()->projects()->withCount(['steps as taskDone' => fn($q) => $q->where('status', 'completed')]);
+        if($this->date_filter == 'none'){
+            $query;
+        }else{
+            $query->orderBy('due_date', $this->date_filter);
+        }
+
+        if($this->date_creation == 'none'){
+            $query->orderBY('created_at', 'desc');
+        }else{
+            $query->orderBy('created_at', $this->date_creation);
+        }
+
+        $projects =   $query->paginate(5)->withPath('/projects');
 
 
         return view('livewire.project', ['projects' => $projects]);
@@ -28,4 +42,26 @@ class Project extends Component
         $project->save();
     }
 
+    public function changeDateFilter (){
+        if($this->date_filter == 'none'){
+            $this->date_filter = 'asc';
+        }elseif($this->date_filter == 'asc'){
+            $this->date_filter = 'desc';
+        }else{
+            $this->date_filter = 'none';
+        }
+
+    }
+
+
+    public function changeDateCreation (){
+        if($this->date_creation == 'none'){
+            $this->date_creation = 'asc';
+        }elseif($this->date_creation == 'asc'){
+            $this->date_creation = 'desc';
+        }else{
+            $this->date_creation = 'none';
+        }
+
+    }
 }

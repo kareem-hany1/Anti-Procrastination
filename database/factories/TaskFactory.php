@@ -29,4 +29,6 @@ class TaskFactory extends Factory
             'remind' => fake()->boolean()
         ];
     }
+
+
 }

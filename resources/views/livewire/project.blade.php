@@ -8,13 +8,35 @@
                     <p class="text-text-muted-dark text-sm font-normal leading-normal">Liste de tes projets.</p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <button class="flex h-9 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-border-dark px-3 text-sm font-medium text-text-dark hover:bg-opacity-80">
+                    <button wire:click="changeDateFilter" class="flex h-9 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-border-dark px-3 text-sm font-medium text-text-dark hover:bg-opacity-80">
                         <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         <span>Date limite</span>
+                        @if($date_filter == 'asc')
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                            </svg>
+                        @endif
+
+                        @if($date_filter == 'desc')
+                            <svg class="rotate-180 " xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                            <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                            </svg>
+                        @endif
                     </button>
-                    <button class="flex h-9 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-border-dark px-3 text-sm font-medium text-text-dark hover:bg-opacity-80">
+                    <button wire:click="changeDateCreation" class="flex h-9 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-border-dark px-3 text-sm font-medium text-text-dark hover:bg-opacity-80">
                         <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M21 6H19M21 12H16M21 18H16M7 20V13.5612C7 13.3532 7 13.2492 6.97958 13.1497C6.96147 13.0615 6.93151 12.9761 6.89052 12.8958C6.84431 12.8054 6.77934 12.7242 6.64939 12.5617L3.35061 8.43826C3.22066 8.27583 3.15569 8.19461 3.10948 8.10417C3.06849 8.02393 3.03853 7.93852 3.02042 7.85026C3 7.75078 3 7.64677 3 7.43875V5.6C3 5.03995 3 4.75992 3.10899 4.54601C3.20487 4.35785 3.35785 4.20487 3.54601 4.10899C3.75992 4 4.03995 4 4.6 4H13.4C13.9601 4 14.2401 4 14.454 4.10899C14.6422 4.20487 14.7951 4.35785 14.891 4.54601C15 4.75992 15 5.03995 15 5.6V7.43875C15 7.64677 15 7.75078 14.9796 7.85026C14.9615 7.93852 14.9315 8.02393 14.8905 8.10417C14.8443 8.19461 14.7793 8.27583 14.6494 8.43826L11.3506 12.5617C11.2207 12.7242 11.1557 12.8054 11.1095 12.8958C11.0685 12.9761 11.0385 13.0615 11.0204 13.1497C11 13.2492 11 13.3532 11 13.5612V17L7 20Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                         <span>Date de creation</span>
+                        @if($date_creation == 'asc')
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                            </svg>
+                        @endif
+
+                        @if($date_creation == 'desc')
+                            <svg class="rotate-180 " xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                                <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
+                            </svg>
+                        @endif
                     </button>
                 </div>
             </header>
@@ -38,7 +60,7 @@
                                 <input @checked($project->status == 'completed') wire:click="changeStatus({{$project}})"  class="form-checkbox h-4 w-4 rounded border-gray-600 bg-transparent text-primary focus:ring-primary focus:ring-2" type="checkbox"/>
                             </td>
                             @if($project->status=='completed')
-                                <td class="px-6 py-4 font-medium text-text-dark"><s href="project/{{$project->id}}" class="decoration-white  decoration hover:underline"><s>{{$project->title}}</s></a></td>
+                                <td class="px-6 py-4 font-medium text-text-dark"><a href="project/{{$project->id}}" class="decoration-white  decoration hover:underline"><s>{{$project->title}}</s></a></td>
                             @else
                                 <td class="px-6 py-4 font-medium text-text-dark"><a href="project/{{$project->id}}" class="decoration-white  decoration hover:underline">{{$project->title}}</a></td>
                             @endif
@@ -47,9 +69,9 @@
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-2">
                                     <div class="w-full  rounded-full h-2 bg-gray-700">
-                                        <div class="bg-primary h-2 rounded-full" style="width: {{$project->taskDone * 100/$project->steps->count()}}%"></div>
+                                        <div class="bg-primary h-2 rounded-full" style="width: {{$project->taskDone * 100/($project->steps->count()==0?1:$project->steps->count())}}%"></div>
                                     </div>
-                                    <span class="text-xs font-medium  text-text-muted-dark">{{$project->taskDone * 100/$project->steps->count()}}%</span>
+                                    <span class="text-xs font-medium  text-text-muted-dark">{{$project->taskDone * 100/($project->steps->count()==0?1:$project->steps->count())}}%</span>
                                 </div>
                             </td>
 

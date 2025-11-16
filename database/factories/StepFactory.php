@@ -19,7 +19,28 @@ class StepFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(), 'description' => fake()->text(50), 'due_date'=> now(), 'project_id' => Project::inRandomOrder()->first()->id, 'user_id' => User::inRandomOrder()->first()->id, 'status' => fake()->randomElement(['todo', 'pending', 'completed']), 'priority' =>fake()->randomElement(['high', 'medium', 'normal']) , 'remind' => fake()->randomElement([true, false])
+            'title' => fake()->sentence(),
+            'description' => fake()->text(50),
+            'due_date'=> now(),
+            'project_id' => Project::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'status' => fake()->randomElement(['todo', 'pending', 'completed']),
+            'priority' =>fake()->randomElement(['high', 'medium', 'normal']) ,
+            'remind' => fake()->randomElement([true, false])
+        ];
+    }
+
+    public function last():array{
+
+        return [
+            'title' => fake()->sentence(),
+            'description' => fake()->text(50),
+            'due_date'=> now(),
+            'project_id' => Project::latest()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'status' => fake()->randomElement(['todo', 'pending', 'completed']),
+            'priority' =>fake()->randomElement(['high', 'medium', 'normal']) ,
+            'remind' => fake()->randomElement([true, false])
         ];
     }
 }
