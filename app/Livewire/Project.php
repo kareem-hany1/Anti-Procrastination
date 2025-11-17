@@ -70,4 +70,9 @@ class Project extends Component
         }
 
     }
+
+    public function destroy(\App\Models\Project $project){
+        $project->delete();
+        flash()->success('Projet supprimé');
+    }
 }
