@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\Step;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -29,7 +30,7 @@ class ProjectController extends Controller
             'due_date' => 'required',
             'priority' => 'required',
 
-//              'status' => 'required',
+//           'status' => 'required',
         ]);
 
         $step->update($validated);
@@ -39,4 +40,22 @@ class ProjectController extends Controller
 
     }
 
-}
+
+    public function store(Project $project,Request $request){
+        $validated = $request->validate([
+            'title' => 'required|max:30',
+            'description' => 'required|max:50',
+            'due_date' => 'required',
+            'priority' => 'required',
+//           'status' => 'required',
+        ]);
+        $validated['user_id'] = Auth::id();
+
+        $project->steps()->create($validated);
+        flash()->success('Tache creé!');
+        return redirect('/project/'.$project->id);
+    }
+
+     public function create(){
+             return view('step.create');}
+    }

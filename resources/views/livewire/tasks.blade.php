@@ -3,7 +3,7 @@
     <div class="layout-content-container flex flex-col w-full ">
         <div class="flex flex-wrap justify-between gap-3 p-4">
             <p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">Mes Taches</p>
-            <a href="/task/create"
+            <a href="/step/{{request()->route('project')}}/create"
                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#233648] text-white text-sm font-medium leading-normal"
             >
                 <span class="truncate"><svg class="inline mr-2"  height="15" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>Nouvelle  Tache</span>
