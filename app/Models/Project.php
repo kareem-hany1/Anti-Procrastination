@@ -22,4 +22,8 @@ class Project extends Model
         return $this->HasMany(Step::class, 'project_id', 'id');
     }
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
 }
