@@ -210,7 +210,7 @@
                                         x-on:click="open = false"
                                         x-bind:style="'top:' + ($el.previousElementSibling.getBoundingClientRect().bottom + window.scrollY) + 'px; left:' + ($el.previousElementSibling.getBoundingClientRect().right - 130) + 'px;'"
                                     >
-                                        <a href="/task/{{$task->id}}/edit" class="w-full text-left px-4 py-2 text-sm text-white hover:bg-[#22364a] flex items-center gap-2">
+                                        <a href="/step/{{$task->id}}/edit" class="w-full text-left px-4 py-2 text-sm text-white hover:bg-[#22364a] flex items-center gap-2">
                                             Modifier
                                         </a>
                                         <button  wire:click="destroy({{$task}})" class="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-[#22364a] flex items-center gap-2">

@@ -21,6 +21,7 @@ Route::get('/task/{task}/edit', [TasksController::class, 'show'])->middleware('a
 Route::post('/task/{task}/edit', [TasksController::class, 'edit'])->middleware('auth')->can('edit', 'task');
 Route::get('/projects', [ProjectController::class, 'index'])->middleware('auth');
 Route::get('/project/{project}', [ProjectController::class, 'show'])->middleware('auth');
-
+Route::get('/step/{step}/edit', [ProjectController::class, 'editStep'])->middleware('auth');
+Route::post('/step/{step}/edit', [ProjectController::class, 'updateStep'])->middleware('auth');
 Route::get('/notify', [TasksController::class, 'notify'])->middleware('auth');
 
