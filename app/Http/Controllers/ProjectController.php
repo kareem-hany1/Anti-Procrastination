@@ -76,6 +76,9 @@ class ProjectController extends Controller
         return redirect('/projects');
     }
 
+    public function createProject(){
+        return view('project.create');
+    }
 
     public function storeProject(Request $request){
         $validated = $request->validate([
@@ -87,7 +90,5 @@ class ProjectController extends Controller
         return redirect('/projects');
     }
 
-    public function createProject(){
-        return view('project.create');
-    }
+
 }

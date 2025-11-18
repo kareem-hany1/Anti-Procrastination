@@ -23,7 +23,7 @@ Route::get('/projects', [ProjectController::class, 'index'])->middleware('auth')
 Route::get('/project/{project}', [ProjectController::class, 'show'])->middleware('auth');
 Route::get('/project/{project}/edit', [ProjectController::class, 'editProject'])->middleware('auth');
 Route::post('/project/{project}/edit', [ProjectController::class, 'updateProject'])->middleware('auth');
-Route::get('/project/create', [ProjectController::class, 'createProject'])->middleware('auth');
+Route::get('/projects/creates', [ProjectController::class, 'createProject'])->middleware('auth');
 Route::post('/project/create', [ProjectController::class, 'storeProject'])->middleware('auth');
 Route::get('/step/{step}/edit', [ProjectController::class, 'editStep'])->middleware('auth');
 Route::post('/step/{step}/edit', [ProjectController::class, 'updateStep'])->middleware('auth');

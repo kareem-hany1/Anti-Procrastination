@@ -38,7 +38,7 @@
                             </svg>
                         @endif
                     </button>
-                    <x-button type="a"  href="/projecdt/create"
+                    <x-button type="a"  href="/projects/creates"
                        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg py-[18px] h-8 px-4 bg-[#233648] text-white text-sm font-medium leading-normal"
                     >
                         <span class="truncate"><svg class="inline mr-2"  height="15" width="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>Nouveau  Projet</span>
@@ -60,6 +60,33 @@
                         </tr>
                         </thead>
                         <tbody>
+                        @php
+                            $colorCode = [
+                                'completed' => 'green',
+                                'todo' => 'yellow',
+                                'pending' => 'blue'
+                                ];
+                            $priorityCode = [
+                                    'high' => 'red',
+                                    'medium' => 'yellow',
+                                    'normal' => 'blue'
+                                           ];
+
+                             $priorityName = [
+                                    'high' => 'Haut',
+                                    'medium' => 'Moyen',
+                                    'normal' => 'Normal'
+                                           ];
+                             $statusName = [
+
+                                    'todo' => 'A Faire',
+                                    'pending' => 'En Cours',
+                                    'completed' => 'Terminé'
+                                            ];
+
+
+
+                        @endphp
                     @foreach($projects as $project)
                         <tr class="border-b border-border-dark hover:bg-white/5">
                             <td class="p-4">
@@ -83,8 +110,13 @@
 
                             <td class="px-6 py-4 font-medium text-text-dark ">{{$project->due_date->toDateString()}}</td>
 
-                            <td  class="px-6 py-4">
-                                <x-button    class="inline-flex items-center rounded-full bg-orange-100 dark:bg-orange-900/50 px-2.5 py-0.5 text-xs font-medium text-orange-800 dark:text-orange-300">{{$project->status}}</x-button>
+                            <td  class="px- py-4">
+                                <button
+
+                                        class="px-5 py-2 rounded-3xl bg-gray-700 text-{{$colorCode[$project->status]}}-500 cursor-default"
+                                >
+                                    {{$statusName[$project->status]}}
+                                </button>
                             </td>
 
                             <td colspan="2"  class="px-6 py-4 flex justify-evenly">

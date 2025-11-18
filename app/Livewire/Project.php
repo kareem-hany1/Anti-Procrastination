@@ -42,8 +42,10 @@ class Project extends Component
             $project->status = 'todo';
         }else{
             $project->status = 'completed';
+            flash()->success('Bravo !');
         }
         $project->save();
+
     }
 
     public function changeDateFilter (){
