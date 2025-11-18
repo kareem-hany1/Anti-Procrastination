@@ -10,6 +10,7 @@
     />
 
     <title>{{$title}}</title>
+
     @livewireStyles
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 

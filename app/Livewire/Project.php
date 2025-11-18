@@ -45,7 +45,6 @@ class Project extends Component
             flash()->success('Bravo !');
         }
         $project->save();
-
     }
 
     public function changeDateFilter (){

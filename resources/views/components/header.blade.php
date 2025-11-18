@@ -59,16 +59,13 @@
                 href="/tasks"
                 class="relative"
             >
-                {{--                <div class="text-white" data-icon="Bell" data-size="20px" data-weight="regular">--}}
                 <svg fill="white" viewBox="-2 -2 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin" class="jam jam-task-list w-[16px] h-[16px] sm:w-[20px] sm:h-[20px] text-white"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M6 0h8a6 6 0 0 1 6 6v8a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6zm0 2a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V6a4 4 0 0 0-4-4H6zm6 7h3a1 1 0 0 1 0 2h-3a1 1 0 0 1 0-2zm-2 4h5a1 1 0 0 1 0 2h-5a1 1 0 0 1 0-2zm0-8h5a1 1 0 0 1 0 2h-5a1 1 0 1 1 0-2zm-4.172 5.243L7.95 8.12a1 1 0 1 1 1.414 1.415l-2.828 2.828a1 1 0 0 1-1.415 0L3.707 10.95a1 1 0 0 1 1.414-1.414l.707.707z"></path></g></svg>
-               <span class="hidden md:inline"> Taches</span>
-                {{--                </div>--}}
+                <span class="hidden md:inline"> Taches</span>
             </x-button>
             <x-button type="a" href="/projects" >
                 <svg width="20" height="20" fill="#ffff" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style> .cls-1 { fill: none; } </style> </defs> <title>roadmap</title> <path d="M12,30H4a2.0023,2.0023,0,0,1-2-2V24a2.0023,2.0023,0,0,1,2-2h8a2.0023,2.0023,0,0,1,2,2v4A2.0023,2.0023,0,0,1,12,30ZM4,24v4h8V24Z"></path> <path d="M28,20H12a2.0023,2.0023,0,0,1-2-2V14a2.0023,2.0023,0,0,1,2-2H28a2.0023,2.0023,0,0,1,2,2v4A2.0023,2.0023,0,0,1,28,20ZM12,14v4H28V14Z"></path> <path d="M16,10H4A2.0023,2.0023,0,0,1,2,8V4A2.0023,2.0023,0,0,1,4,2H16a2.0023,2.0023,0,0,1,2,2V8A2.0023,2.0023,0,0,1,16,10ZM4,4V8H16V4Z"></path> <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"></rect> </g></svg>
                 <span class=" hidden md:inline">Projets</span>
             </x-button>
-
 
             <x-button
                 type="a"
@@ -88,8 +85,38 @@
                 </div>
             </x-button>
 
+            <!-- Dark/Light Mode Toggle -->
+{{--            <button--}}
+{{--                x-data="{--}}
+{{--                    darkMode: localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches),--}}
+{{--                    toggle() {--}}
+{{--                        this.darkMode = !this.darkMode;--}}
+{{--                        if (this.darkMode) {--}}
+{{--                            document.documentElement.classList.add('dark');--}}
+{{--                            localStorage.setItem('theme', 'dark');--}}
+{{--                        } else {--}}
+{{--                            document.documentElement.classList.remove('dark');--}}
+{{--                            localStorage.setItem('theme', 'light');--}}
+{{--                        }--}}
+{{--                    }--}}
+{{--                }"--}}
+{{--                x-init="darkMode && document.documentElement.classList.add('dark')"--}}
+{{--                @click="toggle()"--}}
+{{--                class="p-2 rounded-lg hover:bg-gray-900 transition-colors"--}}
+{{--                aria-label="Toggle dark mode"--}}
+{{--            >--}}
+{{--                <!-- Sun icon (visible in dark mode) -->--}}
+{{--                <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
+{{--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />--}}
+{{--                </svg>--}}
+{{--                <!-- Moon icon (visible in light mode) -->--}}
+{{--                <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
+{{--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />--}}
+{{--                </svg>--}}
+{{--            </button>--}}
+
             <!-- Nom utilisateur avec popup -->
-            <div class="relative" x-data="{ open: false }">
+            <div class="relative" x-data="{ open: false }" x-init="open = false">
                 <button
                     @click="open = !open"
                     class="flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors"
@@ -104,14 +131,20 @@
                 <div
                     x-show="open"
                     @click.away="open = false"
-                    x-transition
+                    x-transition:enter="transition ease-out duration-100"
+                    x-transition:enter-start="transform opacity-0 scale-95"
+                    x-transition:enter-end="transform opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-75"
+                    x-transition:leave-start="transform opacity-100 scale-100"
+                    x-transition:leave-end="transform opacity-0 scale-95"
                     class="absolute right-0 mt-2 w-40 sm:w-48 bg-gray-700 rounded-lg shadow-lg py-1 z-50"
+                    style="display: none;"
                 >
                     <form action="/logout" method="post">
                         @csrf
                         <button
                             type="submit"
-                            class="w-full text-left px-3 sm:px-4 py-2 text-red-600 transition-colors flex items-center gap-2 text-xs sm:text-sm"
+                            class="w-full text-left px-3 sm:px-4 py-2 text-red-600 hover:bg-gray-600 transition-colors flex items-center gap-2 text-xs sm:text-sm"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 sm:h-4 sm:w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -140,6 +173,34 @@
                 <span class="hidden sm:inline">Inscription</span>
                 <span class="sm:hidden">Sign up</span>
             </x-button>
+{{--            <button--}}
+{{--                x-data="{--}}
+{{--                    darkMode: localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches),--}}
+{{--                    toggle() {--}}
+{{--                        this.darkMode = !this.darkMode;--}}
+{{--                        if (this.darkMode) {--}}
+{{--                            document.documentElement.classList.add('dark');--}}
+{{--                            localStorage.setItem('theme', 'dark');--}}
+{{--                        } else {--}}
+{{--                            document.documentElement.classList.remove('dark');--}}
+{{--                            localStorage.setItem('theme', 'light');--}}
+{{--                        }--}}
+{{--                    }--}}
+{{--                }"--}}
+{{--                x-init="darkMode && document.documentElement.classList.add('dark')"--}}
+{{--                @click="toggle()"--}}
+{{--                class="p-2 rounded-lg hover:bg-gray-900 transition-colors"--}}
+{{--                aria-label="Toggle dark mode"--}}
+{{--            >--}}
+{{--                <!-- Sun icon (visible in dark mode) -->--}}
+{{--                <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
+{{--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />--}}
+{{--                </svg>--}}
+{{--                <!-- Moon icon (visible in light mode) -->--}}
+{{--                <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">--}}
+{{--                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />--}}
+{{--                </svg>--}}
+{{--            </button>--}}
         @endguest
     </div>
 </header>

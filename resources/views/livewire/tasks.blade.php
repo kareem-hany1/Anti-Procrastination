@@ -172,7 +172,7 @@
                                 </x-status>
                             </td>
 
-                            <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
+
 
                             <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px]  py-2 w-60 text-sm font-normal leading-normal">
                                 <label  class="inline-flex items-center cursor-pointer relative">
@@ -192,7 +192,7 @@
 
 
                             </td>
-                            </td>
+
                             <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-600 -z-1 h-[72px] px-2 py-5 w-60 text-[#92adc9] text-sm font-bold leading-normal tracking-[0.015em] flex justify-evenly relative">
                                 <div wire:key="task-menu-{{ $task->id }}" x-data="{ open: @entangle('openMenus.'.$task->id).live }" class="relative ">
                                     <x-status   @click="open = !open" class="p-2 rounded-full hover:bg-[#1a2b3b] transition">
@@ -232,4 +232,7 @@
 
         </div>
     </div>
+    <x-button type="a" href="/projects" class="absolute top-16 sm:top-20 left-4 sm:left-10 text-sm sm:text-base">
+        ← Retour
+    </x-button>
 </div>
