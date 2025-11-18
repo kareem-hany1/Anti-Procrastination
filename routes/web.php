@@ -21,8 +21,13 @@ Route::get('/task/{task}/edit', [TasksController::class, 'show'])->middleware('a
 Route::post('/task/{task}/edit', [TasksController::class, 'edit'])->middleware('auth')->can('edit', 'task');
 Route::get('/projects', [ProjectController::class, 'index'])->middleware('auth');
 Route::get('/project/{project}', [ProjectController::class, 'show'])->middleware('auth');
+Route::get('/project/{project}/edit', [ProjectController::class, 'editProject'])->middleware('auth');
+Route::post('/project/{project}/edit', [ProjectController::class, 'updateProject'])->middleware('auth');
+Route::get('/project/create', [ProjectController::class, 'createProject'])->middleware('auth');
+Route::post('/project/create', [ProjectController::class, 'storeProject'])->middleware('auth');
 Route::get('/step/{step}/edit', [ProjectController::class, 'editStep'])->middleware('auth');
 Route::post('/step/{step}/edit', [ProjectController::class, 'updateStep'])->middleware('auth');
 Route::post('/step/{project}/create', [ProjectController::class, 'store'])->middleware('auth');
 Route::get('/step/{project}/create', [ProjectController::class, 'create'])->middleware('auth');
 Route::get('/notify', [TasksController::class, 'notify'])->middleware('auth');
+

@@ -58,4 +58,36 @@ class ProjectController extends Controller
 
      public function create(){
              return view('step.create');}
+
+
+    public function editProject(Project $project){
+            return view('project.edit', ['task' => $project]);
     }
+
+    public function updateProject(Request $request, Project $project){
+        $validated = $request->validate([
+            'title' => 'required',
+            'due_date' => 'required',
+        ]);
+//        $validated['user_id'] = Auth::id();
+//        dd($validated);
+        $project->update($validated);
+        flash()->success('Projet Modifié');
+        return redirect('/projects');
+    }
+
+
+    public function storeProject(Request $request){
+        $validated = $request->validate([
+            'title' => 'required',
+            'due_date' => 'required',
+        ]);
+        auth()->user()->projects()->create($validated);
+        flash()->success('Projet creé');
+        return redirect('/projects');
+    }
+
+    public function createProject(){
+        return view('project.create');
+    }
+}
