@@ -12,8 +12,6 @@ Route::post('/login', [UsersController::class, 'login']);
 Route::get('/register', [HomeController::class, 'register']);
 Route::post('/register', [UsersController::class, 'register']);
 Route::post('/logout', [UsersController::class, 'logout']);
-
-
 Route::get('/tasks', [TasksController::class, 'index'])->middleware('auth');
 Route::get('/task/create', [TasksController::class, 'create'])->middleware('auth');
 Route::post('/task/create', [TasksController::class, 'store'])->middleware('auth');
@@ -26,8 +24,10 @@ Route::post('/project/{project}/edit', [ProjectController::class, 'updateProject
 Route::get('/projects/creates', [ProjectController::class, 'createProject'])->middleware('auth');
 Route::post('/project/create', [ProjectController::class, 'storeProject'])->middleware('auth');
 Route::get('/step/{step}/edit', [ProjectController::class, 'editStep'])->middleware('auth')->can('steps', 'step');
-Route::post('/step/{step}/edit', [ProjectController::class, 'updateStep'])->middleware('auth');
+Route::post('/step/{step}/edit', [ProjectController::class, 'updateStep'])->middleware('auth')->can('steps', 'step');
 Route::post('/step/{project}/create', [ProjectController::class, 'store'])->middleware('auth');
 Route::get('/step/{project}/create', [ProjectController::class, 'create'])->middleware('auth');
 Route::get('/notify', [TasksController::class, 'notify'])->middleware('auth');
+Route::post('/notify/{notify}/delete', [TasksController::class, 'deleteNotify'])->middleware('auth');
+Route::post('/notify/deleteAll', [TasksController::class, 'deleteNotifyAll'])->middleware('auth');
 

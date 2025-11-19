@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Notify;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,8 +61,20 @@ class TasksController extends Controller
     }
 
     public function notify(){
-        $notifs = Auth::user()->notifys()->get();
+        $notifs = Auth::user()->notifys()->paginate(50)->withPath('/notify');
         Auth::user()->hasnotify()->update(['status' => false]);
         return view('task.notify', compact('notifs'));
+    }
+
+    public function deleteNotify(Notify  $notify){
+        $notify->delete();
+        flash()->success('La tache a ete supprimer');
+        return redirect()->back();
+    }
+
+    public function deleteNotifyAll(){
+        Auth::user()->notifys()->delete();
+        flash()->success('La tache a ete supprimer');
+        return redirect()->back();
     }
 }

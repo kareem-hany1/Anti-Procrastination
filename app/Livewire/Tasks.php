@@ -21,6 +21,7 @@ class Tasks extends Component
     public function render()
 
     {
+        $this->checkIfOneTaskPending();
         $project = $this->projectId;
 
         if($this->filter=='all'){
@@ -118,5 +119,15 @@ class Tasks extends Component
             flash()->error('Le rappel via email est desactivé pour cette tache');
         }
 
+    }
+
+    public function checkIfOneTaskPending(){
+        $project = \App\Models\Project::where('id', $this->projectId)->first();
+        if($project->status == 'todo'){
+            $checkIfOneTaskpending = Step::where('status', 'pending')->orWhere('status', 'todo')->where('project_id', $project->id)->exists();
+            if($checkIfOneTaskpending){
+                $project->update(['status' => 'pending']);
+            }
+        }
     }
 }
