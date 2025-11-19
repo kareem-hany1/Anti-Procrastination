@@ -25,7 +25,7 @@ Route::get('/project/{project}/edit', [ProjectController::class, 'editProject'])
 Route::post('/project/{project}/edit', [ProjectController::class, 'updateProject'])->middleware('auth');
 Route::get('/projects/creates', [ProjectController::class, 'createProject'])->middleware('auth');
 Route::post('/project/create', [ProjectController::class, 'storeProject'])->middleware('auth');
-Route::get('/step/{step}/edit', [ProjectController::class, 'editStep'])->middleware('auth');
+Route::get('/step/{step}/edit', [ProjectController::class, 'editStep'])->middleware('auth')->can('steps', 'step');
 Route::post('/step/{step}/edit', [ProjectController::class, 'updateStep'])->middleware('auth');
 Route::post('/step/{project}/create', [ProjectController::class, 'store'])->middleware('auth');
 Route::get('/step/{project}/create', [ProjectController::class, 'create'])->middleware('auth');

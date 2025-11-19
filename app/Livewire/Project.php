@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Step;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
@@ -12,7 +13,7 @@ class Project extends Component
     public $date_filter = 'none';
     public $date_creation ='none';
     public $priority='all';
-    public $dues = 'all';
+
     public function render()
     {
 

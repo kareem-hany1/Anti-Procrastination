@@ -20,7 +20,7 @@ class ProjectController extends Controller
     }
 
     public function editStep(Step $step){
-        return view('step.edit', ['task' => $step])     ;
+        return view('step.edit', ['task' => $step]);
     }
 
     public function updateStep(Request $request, Step $step){
