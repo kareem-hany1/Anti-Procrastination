@@ -9,6 +9,7 @@ class Step extends Model
 {
     use HasFactory;
     protected $table = 'steps';
+    protected $casts = ['due_date' => 'datetime'];
     protected $fillable = ['title', 'description', 'due_date', 'project_id', 'user_id', 'status', 'priority', 'remind'];
 
     public function project(){

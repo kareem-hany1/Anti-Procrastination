@@ -52,7 +52,7 @@
                 </div>
                 <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
                     <label class="flex flex-col min-w-40 flex-1">
-                        <p class="text-white text-base font-medium leading-normal pb-2">Deadline</p>
+                        <p class="text-white text-base font-medium leading-normal pb-2">Date Limite</p>
                         <input
                             placeholder="Select due date"
                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#233648] focus:border-none h-14 placeholder:text-[#92adc9] p-4 text-base font-normal leading-normal"

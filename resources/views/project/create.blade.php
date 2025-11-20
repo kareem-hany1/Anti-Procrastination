@@ -10,7 +10,7 @@
                     <label class="flex flex-col min-w-40 flex-1">
                         <p class="text-white text-base font-medium leading-normal pb-2">Nom du Projet</p>
                         <input
-                            placeholder="Entrer la tache"
+                            placeholder="Entrer le nom du projet"
                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#233648] focus:border-none h-14 placeholder:text-[#92adc9] p-4 text-base font-normal leading-normal"
                             value="{{old('title')}}"
                             name="title"
@@ -25,7 +25,7 @@
                     <label class="flex flex-col min-w-40 flex-1">
                         <p class="text-white text-base font-medium leading-normal pb-2">Date Limite</p>
                         <input
-                            placeholder="Select due date"
+                            placeholder="choisir la date limite"
                             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border-none bg-[#233648] focus:border-none h-14 placeholder:text-[#92adc9] p-4 text-base font-normal leading-normal"
                             value="{{old('due_date')}}"
                             type="date"

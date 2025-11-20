@@ -2,7 +2,7 @@
 <div class="px-10 lg:px-40 flex justify-center py-5 w-full ">
     <div class="layout-content-container flex flex-col w-full ">
         <div class="flex flex-wrap justify-between gap-3 p-4">
-            <p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">Mes Taches</p>
+            <p  class="text-white tracking-light text-2xl md:text-[32px] font-bold leading-tight min-w-72">Mes Taches</p>
             <a href="/step/{{request()->route('project')}}/create"
                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#233648] text-white text-sm font-medium leading-normal"
             >
@@ -94,7 +94,7 @@
             </button>
         </div>
         <div class="px-4 py-3 w-full ">
-            <div class="flex w-full mb-3  max-h-[55vh] overflow-y-scroll rounded-lg border border-[#324d67] bg-[#111a22] scrollbar-thin scrollbar-thumb-[#2b8dee]/60 scrollbar-track-[#192633] hover:scrollbar-thumb-[#2b8dee]/80     custom-scrollbar">
+            <div class="hidden lg:flex w-full mb-3 max-h-[55vh] overflow-y-scroll rounded-lg border border-[#324d67] bg-[#111a22] scrollbar-thin scrollbar-thumb-[#2b8dee]/60 scrollbar-track-[#192633] hover:scrollbar-thumb-[#2b8dee]/80 custom-scrollbar">
                 <table>
                     <thead>
                     <tr class="bg-[#192633]">
@@ -154,14 +154,14 @@
                             <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-240 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                                 <x-status
                                     :color="$colorCode[$task->status]"
-                                    wire:click="status({{$task}})"
+                                    wire:click="status({{$task->id}})"
                                 >
 
                                     {{$statusName[$task->status]}}
                                 </x-status>
                             </td>
-                            <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 h-[72px] {{\Illuminate\Support\Str::limit($task->due_date, 10, end:'') == now()->toDateString()?'text-red-500':''}} px-4 py-2 w-[400px] text-[#92adc9] text-sm font-normal leading-normal">
-                                {{\Illuminate\Support\Str::limit($task->due_date, 10, end: '')}}
+                            <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-360 h-[72px] {{$task->due_date->diffInDays(now()) <= 2?'text-red-500':''}} px-4 py-2 w-[400px] text-[#92adc9] text-sm font-normal leading-normal">
+                                {{$task->due_date->toDateString()}}
                             </td>
                             <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px] px-4 py-2 w-60 text-sm font-normal leading-normal">
                                 <x-status
@@ -177,7 +177,7 @@
                             <td class="table-14759d78-e315-4e2e-8b8d-9474bae781df-column-480 h-[72px]  py-2 w-60 text-sm font-normal leading-normal">
                                 <label  class="inline-flex items-center cursor-pointer relative">
                                     <!-- Checkbox cachée -->
-                                    <input wire:click="remind({{$task}})" type="checkbox" class="sr-only peer" />
+                                    <input wire:click="remind({{$task->id}})" type="checkbox" class="sr-only peer" />
 
                                     <!-- Track -->
                                     <div class="w-11 h-6  rounded-full {{$task->remind==1?'bg-green-500':'bg-gray-300'}}   transition-colors"></div>
@@ -226,6 +226,87 @@
                     </tbody>
                 </table>
 
+            </div>
+
+            <!-- Vue Mobile et Tablette (Cartes) -->
+            <div class="lg:hidden space-y-4 mb-3">
+                @foreach($tasks as $task)
+                    <div class="rounded-lg border border-[#324d67] bg-[#111a22] p-4">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex-1">
+                                <h3 class="text-white font-medium mb-2">
+                                    @if($task->status =='completed')
+                                        <em><s>{{$task->title}}</s></em>
+                                    @else
+                                        {{$task->title}}
+                                    @endif
+                                </h3>
+                                <p class="text-[#92adc9] text-sm mb-3">{{\Illuminate\Support\Str::limit($task->description, 100)}}</p>
+                            </div>
+                            <div wire:key="task-menu-mobile-{{ $task->id }}" x-data="{ open: @entangle('openMenus.'.$task->id).live }" class="relative ml-2">
+                                <x-status @click="open = !open" class="p-2 rounded-full hover:bg-[#1a2b3b] transition">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                                        <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0zm6 0a2 2 0 11-4 0 2 2 0 014 0z" />
+                                    </svg>
+                                </x-status>
+                                <div
+                                    wire:ignore.self x-show="open" @click.away="open = false"
+                                    class="absolute right-0 mt-2 bg-[#1a2b3b] border border-[#324d67] rounded-lg shadow-lg z-[9999] w-32"
+                                    x-transition
+                                    x-cloak
+                                    x-on:click="open = false"
+                                >
+                                    <a href="/step/{{$task->id}}/edit" class="block w-full text-left px-4 py-2 text-sm text-white hover:bg-[#22364a]">
+                                        Modifier
+                                    </a>
+                                    <button wire:click="destroy({{$task}})" class="block w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-[#22364a]">
+                                        Supprimer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[#92adc9] text-sm">Status:</span>
+                                <x-status
+                                    :color="$colorCode[$task->status]"
+                                    wire:click="status({{$task->id}})"
+                                    class="text-xs"
+                                >
+                                    {{$statusName[$task->status]}}
+                                </x-status>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <span class="text-[#92adc9] text-sm">Date limite:</span>
+                                <span class="{{$task->due_date->diffInDays(now()) <= 2?'text-red-500':'text-[#92adc9]'}} text-sm">
+                                    {{$task->due_date->toDateString()}}
+                                </span>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <span class="text-[#92adc9] text-sm">Priorité:</span>
+                                <x-status
+                                    :color="$priorityCode[$task->priority]"
+                                    class="text-xs"
+                                >
+                                    {{$priorityName[$task->priority]}}
+                                </x-status>
+                            </div>
+
+                            <div class="flex justify-between items-center pt-2 border-t border-[#324d67]">
+                                <span class="text-[#92adc9] text-sm">Rappel Email:</span>
+                                <label class="inline-flex items-center cursor-pointer relative">
+                                    <input wire:click="remind({{$task->id}})" type="checkbox" class="sr-only peer" />
+                                    <div class="w-11 h-6 rounded-full {{$task->remind==1?'bg-green-500':'bg-gray-300'}} transition-colors"></div>
+                                    <div class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full shadow transform transition-transform {{$task->remind==1?'translate-x-5 ':''}}"></div>
+                                    <span class="ml-3 text-sm text-gray-300 select-none">{{$task->remind?'OUI':'NON'}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
 
             {{$tasks->links()}}
