@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:title>HOME</x-slot:title>
+    <x-slot:title>Accueil</x-slot:title>
     <div class="layout-container flex h-full grow flex-col">
         <x-header/>
         <div class="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden ">

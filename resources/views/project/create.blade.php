@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:title>CREATE</x-slot:title>
+    <x-slot:title>Projet | Creer</x-slot:title>
     <div class="layout-container flex h-full grow flex-col">
         <x-header/>
         <div class="px-40 flex justify-center py-5">
